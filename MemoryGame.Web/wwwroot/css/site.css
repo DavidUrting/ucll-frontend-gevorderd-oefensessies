@@ -1,2 +1,7 @@
 ﻿body {
 }
+
+img.tile {
+    width: 100px;
+    height: 100px;
+}
