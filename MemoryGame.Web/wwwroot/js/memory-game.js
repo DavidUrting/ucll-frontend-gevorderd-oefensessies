@@ -46,8 +46,11 @@ for (let i = 0; i < gameCards.length; i++) {
                     // yes! De flippedCards zijn nu defintief omgedraaid...
                     currentFlippedCards = [];
 
-                    // alle kaarten omgedraaid?
-                    // TODO
+                    // alle kaarten omgedraaid? -> score bord tonen
+                    if (document.querySelectorAll("img.game-card-down").length === 0) {
+                        document.getElementById("gameBoard").style.display = "none";
+                        document.getElementById("scoreBoard").style.display = "initial";
+                    }
                 }
             }
         }  
