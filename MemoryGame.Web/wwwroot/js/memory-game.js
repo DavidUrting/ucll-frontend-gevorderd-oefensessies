@@ -1,4 +1,7 @@
-﻿// Alle game cards ophalen (dat zijn img element met de class game-card).
+﻿let gameStart = null;
+let gameEnd = null;
+
+// Alle game cards ophalen (dat zijn img elements met de class game-card).
 let gameCards = document.querySelectorAll("img.game-card");
 
 // De kaarten willekeurig leggen
@@ -46,8 +49,15 @@ for (let i = 0; i < gameCards.length; i++) {
                     // yes! De flippedCards zijn nu defintief omgedraaid...
                     currentFlippedCards = [];
 
-                    // alle kaarten omgedraaid? -> score bord tonen
+                    // alle kaarten omgedraaid?
                     if (document.querySelectorAll("img.game-card-down").length === 0) {
+                        gameEnd = new Date();
+
+                        // Benodigde tijd in seconden berekenen.
+                        // https://stackoverflow.com/questions/2024198/how-many-seconds-between-two-dates
+                        document.getElementById("time").innerText = ((gameEnd - gameStart) / 1000);
+
+                        // game bord verbergen en score bord tonen.
                         document.getElementById("gameBoard").style.display = "none";
                         document.getElementById("scoreBoard").style.display = "initial";
                     }
@@ -56,3 +66,5 @@ for (let i = 0; i < gameCards.length; i++) {
         }  
     });
 }
+
+gameStart = new Date();
