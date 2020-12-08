@@ -1,12 +1,17 @@
 ﻿let gameCards = document.querySelectorAll("img.game-card");
 
 // willekeurig kaarten leggen
+let cardCount = [0, 0, 0, 0];
 for (let i = 0; i < gameCards.length; i++) {
     let gameCard = gameCards[i];
-    let willekeurigGetal = Math.random() * 3; // willekeurig getal in interval [0,3[
-    willekeurigGetal = willekeurigGetal + 1; // willekeurig getal in interval [1, 4[
-    willekeurigGetal = Math.round(willekeurigGetal); // willekeurig getal in [1,2,3,4]
-    gameCard.src = "img/card_0" + willekeurigGetal + ".png";
+    let randomCardIndex;
+    do {
+        randomCardIndex = Math.random() * 3; // willekeurig getal in interval [0,3[
+        randomCardIndex = randomCardIndex + 1; // willekeurig getal in interval [1, 4[
+        randomCardIndex = Math.round(randomCardIndex); // willekeurig getal in [1,2,3,4]
+    } while (cardCount[randomCardIndex] > 2);
+    cardCount[randomCardIndex] += 1;
+    gameCard.src = "img/card_0" + randomCardIndex + ".png";
 }
 
 // luisteren naar de kaarten :)
