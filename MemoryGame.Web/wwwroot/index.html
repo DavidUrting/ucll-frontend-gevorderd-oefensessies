@@ -16,21 +16,32 @@
         <h1>UCLL Memory Game</h1>
         <section id="gameBoard">
             <div class="row">
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
             </div>                                          
-            <div class="row">                                
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
-                <div class="col-2"><img class="p-2 game-card game-card-down" /></div>
+            <div class="row">                               
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
+                <div class="col-2"><img class="p-2 game-card" /></div>
             </div>
         </section>
         <section id="scoreBoard" style="display: none">
             <h2>Goed gedaan!</h2>
             <p>Je deed er <span id="time"></span> seconden over.</p>
+            <table id="leaderBoard" class="bg-info">
+                <caption>Leaderboard</caption>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="playAgain">Nog eens spelen</button>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
