@@ -17,19 +17,19 @@ let gameCards = document.querySelectorAll("img.game-card");
 for (let i = 0; i < gameCards.length; i++) {
     gameCards[i].addEventListener("click", function (e) {
         // kaart omdraaien (als de kaart al omgedraaid is moet er natuurlijk niets gebeuren)
-        if (e.target.className.indexOf("game-card-down") >= 0) {
+        if (e.target.src.indexOf("img/card_down.png") >= 0) {
 
             // Als er in flippedCards twee actieve kaarten zitten, dan betekent dat dat 
             // de speler twee verkeerde kaarten heeft aangeklikt.
             if (currentFlippedCards.length === 2) {
                 // De kaarten terug verbergen.
-                currentFlippedCards[0].className += " game-card-down";
-                currentFlippedCards[1].className += " game-card-down";
+                currentFlippedCards[0].src = "img/card_down.png";
+                currentFlippedCards[1].src = "img/card_down.png";
                 currentFlippedCards = [];
             }
 
             // Kaart omdraaien (tonen)
-            e.target.className = e.target.className.replace("game-card-down", "");
+            e.target.src = e.target.dataset.gameCardPicture;
 
             // Onthouden dat deze kaart is omgedraaid.
             currentFlippedCards.push(e.target);
@@ -42,7 +42,7 @@ for (let i = 0; i < gameCards.length; i++) {
                     currentFlippedCards = [];
 
                     // alle kaarten omgedraaid?
-                    if (document.querySelectorAll("img.game-card-down").length === 0) {
+                    if (document.querySelectorAll("img[src='img/card_down.png']").length === 0) {
                         gameEnd = new Date();
 
                         // Benodigde tijd in seconden berekenen.
@@ -90,14 +90,18 @@ function playNewGame() {
     let cardCount = [0, 0, 0, 0];
     for (let i = 0; i < gameCards.length; i++) {
         let gameCard = gameCards[i];
-        gameCard.className += " game-card-down";
+
+        // Kaart omdraaien (afbeelding naar beneden leggen)
+        gameCard.src = "img/card_down.png";
+
         let randomCardIndex;
         do {
             randomCardIndex = Math.random() * 3; // willekeurig getal in interval [0,3[        
             randomCardIndex = Math.round(randomCardIndex); // willekeurig getal in [0,1,2,3]
         } while (cardCount[randomCardIndex] >= 2);
         cardCount[randomCardIndex] += 1;
-        gameCard.src = "img/card_0" + randomCardIndex + ".png";
+        gameCard.dataset.gameCardPicture = "img/card_0" + randomCardIndex + ".png";
+
     }
 
     // Tijdstip van start registreren.

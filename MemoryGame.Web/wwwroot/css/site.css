@@ -5,8 +5,3 @@
     width: 100px;
     height: 100px;
 }
-
-.game-card-down {
-    /* https://stackoverflow.com/questions/12142386/replacing-an-image-in-an-img-tag-using-css */
-    content: url("../img/card_down.png");
-}
