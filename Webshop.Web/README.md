@@ -44,3 +44,6 @@ Terug naar de frontend:
 13. Pas de layout aan zodat alle producten over een breedte van 10 kolommen worden getoond in een <main> en de cart in een <aside> van twee kolommen.
     Bemerk dat je dus rows in rows in rows ... kan gebruiken bij gebruik van Bootstrap.
 14. Vul de <aside> met alle producten die in de winkelkar zitten.
+15. Koppel een event aan de 'Toevoegen' anchor zodat het product wordt toegevoegd (via een POST), waarna de lijst opnieuw wordt bijgewerkt.
+    $.post werkt spijtig genoeg niet zomaar out of the box met json, waardoor je zal moeten teruggrijpen naar ajax.
+    Maar er is een propere workaround waarbij we jQuery 'uitbreiden' met een nieuwe postJSON methode: https://stackoverflow.com/questions/40074899/unsupported-media-type-when-posting-json-data-to-api-using-jquery
