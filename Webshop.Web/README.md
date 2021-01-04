@@ -21,4 +21,10 @@ Eerst wat backend werk:
 5. Test je ProductController eens door te navigeren naar /api/product en /api/product/0
    Gebruik eventueel ook eens PostMan. 
 
+Dan frontend werk:
+6. Opzetten van /wwwroot met daarin een /wwwroot/index.html en een /wwwroot/js/shop.js bestand. Startup.cs aanpassen met de 2 middlewares.
+7. Toevoegen Bootstrap 4 via CDN.
+8. Toevoegen eventuele andere libraries zoals jQuery (als je de Bootstrap 4 starter template gebruikt heb je dat normaal gezien al).
+9. Wat dummy markup voorzien 'zodat we al een idee hebben'.
+   Startup url aanpassen van 'api/product' naar ''.
 
