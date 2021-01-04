@@ -24,7 +24,8 @@ Eerst wat backend werk:
 Dan frontend werk:
 6. Opzetten van /wwwroot met daarin een /wwwroot/index.html en een /wwwroot/js/shop.js bestand. Startup.cs aanpassen met de 2 middlewares.
 7. Toevoegen Bootstrap 4 via CDN.
-8. Toevoegen eventuele andere libraries zoals jQuery (als je de Bootstrap 4 starter template gebruikt heb je dat normaal gezien al).
+8. Toevoegen eventuele andere libraries zoals jQuery (als je de Bootstrap 4 starter template gebruikt heb je dat normaal gezien al maar let op: niet de 'slim' versie gebruiken! Best is de officiele CDN van jQuery te gebruiken in dat geval.).
 9. Wat dummy markup voorzien 'zodat we al een idee hebben'.
    Startup url aanpassen van 'api/product' naar ''.
-
+10. Dummy markup vervangen door dynamisch gegenereerde markup op basis van een GET call naar /api/product. Bijvoorbeeld via $.get of fetch().
+    Om de markup toe te voegen kan je gebruik maken van $.after().
