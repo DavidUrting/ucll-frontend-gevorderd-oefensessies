@@ -29,3 +29,18 @@ Dan frontend werk:
    Startup url aanpassen van 'api/product' naar ''.
 10. Dummy markup vervangen door dynamisch gegenereerde markup op basis van een GET call naar /api/product. Bijvoorbeeld via $.get of fetch().
     Om de markup toe te voegen kan je gebruik maken van $.after().
+
+## Epic 2: een eenvoudige winkelkar
+Eerst weer wat backend werk:
+11. Voorzie een nieuwe 'CartController' met Get (= ophalen van alle items in de winkelkar), Post (= plaatsen van een product in de winkelkar) en Delete (= verwijderen van een product uit de kar).
+    Vooralsnog gaan we een gedeelde winkelkar maken: iedereen ziet dezelfde winkelkar (dus nog geen login of zo).
+    We gaan ook maar ondersteuning bieden voor max één item van een product in de kar (dus geen 'aantal' items van een bepaald product).
+    Verder gaan we de inhoud van de kar ook enkel bijhouden in een static List (zoals de producten), dus geen interactie met een database.
+    (!) Opgelet met DELETE: de method verwacht de id via de URL en niet in de body. Dit kan je oplossen door die "{id}" weg te doen en [FromBody] bij het argument te zetten zoals bij Post.
+12. Test de verschillende methods van de Cart controller, dus een GET naar /cart, een POST naar /cart (via PostMan!) en een DELETE naar /cart (via PostMan!).
+    Voor de Post en Delete zal je dus gebruik moeten maken van Postman want via de URL adresbalk van een browser kan je die methods niet uitvoeren.
+
+Terug naar de frontend:
+13. Pas de layout aan zodat alle producten over een breedte van 10 kolommen worden getoond in een <main> en de cart in een <aside> van twee kolommen.
+    Bemerk dat je dus rows in rows in rows ... kan gebruiken bij gebruik van Bootstrap.
+14. Vul de <aside> met alle producten die in de winkelkar zitten.

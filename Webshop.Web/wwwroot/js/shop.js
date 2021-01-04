@@ -1,4 +1,5 @@
 ﻿$(function () {
+    // Alle producten ophalen en tonen.
     let markup = "";
     $.get("/api/product", function (products) {
         for (let i = 0; i < products.length; i++) {
@@ -15,7 +16,13 @@
 
             if (i % 2 === 1) markup += "</div>";
         }
+        $("main").append(markup);
 
-        $("h1").after(markup);
+        // Vervolgens de inhoud van de winkelkar tonen.
+        $.get("/api/cart", function (productIds) {
+            for (let i = 0; i < productIds.length; i++) {
+                $("aside ol").append(`<li>Product ${productIds[i]}</li>`);
+            }
+        });
     });
 });
